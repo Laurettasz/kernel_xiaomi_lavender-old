@@ -1,0 +1,17 @@
+kind: pipeline
+name: aLn Kernel for Lavender
+
+clone:
+  depth: 1
+
+steps:
+- name: do_lavender_aosp
+  image: debian:latest
+  commands:
+    - apt-get update
+    - apt-get install -y ccache bc bash git-core gnupg build-essential zip curl make automake autogen autoconf autotools-dev libtool shtool python m4 gcc libtool zlib1g-dev dash pigz gcc-aarch64-linux-gnu flex
+    - git clone --depth=1 https://github.com/alanndz/my_scripts .build
+    - bash .build/kernel_lavender_ci.sh
+  when:
+    branch:
+      - eas
