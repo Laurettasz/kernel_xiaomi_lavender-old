@@ -14,4 +14,4 @@ steps:
     - bash .build/kernel_lavender_ci.sh
   when:
     branch:
-      - eas
+      - aosp-eas
