@@ -19,5 +19,7 @@ blocks:
           - install-package --update-new ccache bc bash git-core gnupg build-essential zip curl make automake autogen autoconf autotools-dev libtool shtool python m4 gcc libtool zlib1g-dev dash pigz gcc-aarch64-linux-gnu flex libssl-dev
           - git clone --depth=1 https://github.com/alanndz/my_scripts .build
           - chmod +x .build/kernel_lavender_ci.sh
+          - export RELEASE_STATUS=1
+          - export KERNEL_VERSION="1.11"
           - bash .build/kernel_lavender_ci.sh
 
