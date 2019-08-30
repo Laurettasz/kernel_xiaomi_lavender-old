@@ -1,0 +1,21 @@
+name: Cooking Kernel
+on: push
+
+jobs:
+  build:
+    name: Building
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+       with:
+         fetch-depth: 1
+    - name: Build
+      env:
+        CODENAME: TEST-Pie
+        TYPE_KERNEL: EAS
+        USECLANG: 1
+      run: |
+        apt-get update
+        apt install bc gcc-aarch64-linux-gnu flex libssl-dev
+        git clone --depth=1 https://github.com/alanndz/my_scripts .build
+        bash .build/kernel_lavender_ci_q.sh
