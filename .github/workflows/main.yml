@@ -15,7 +15,7 @@ jobs:
         TYPE_KERNEL: EAS
         USECLANG: 1
       run: |
-        apt-get update
-        apt install bc gcc-aarch64-linux-gnu flex libssl-dev
+        sudo apt-get update
+        sudo apt install bc gcc-aarch64-linux-gnu flex libssl-dev
         git clone --depth=1 https://github.com/alanndz/my_scripts .build
-        bash .build/kernel_lavender_ci_q.sh
+        sudo bash .build/kernel_lavender_ci_q.sh
